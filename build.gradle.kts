@@ -6,7 +6,7 @@
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.5.10"
+    id("org.jetbrains.kotlin.jvm") version "2.2.21"
 
     // Apply the application plugin to add support for building a CLI application.
     application
@@ -22,12 +22,20 @@ dependencies {
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
 
-    // Use the Kotlin JDK 8 standard library.
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    testImplementation("io.kotest:kotest-runner-junit5:4.6.0")
-    testImplementation("io.kotest:kotest-property:4.6.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
+    // Use the Kotlin JDK standard library.
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.2.21")
+    testImplementation("io.kotest:kotest-runner-junit5:6.0.4")
+    testImplementation("io.kotest:kotest-property:6.0.4")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.14.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.14.1")
+}
+
+kotlin {
+    jvmToolchain(21)
+}
+
+tasks.withType<JavaCompile> {
+    options.release.set(21)
 }
 
 tasks.withType<Test> {

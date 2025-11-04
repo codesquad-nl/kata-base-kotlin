@@ -1,7 +1,7 @@
 # Kotlin starter project
 
-* Gradle 7
-* Kotlin 1.5.10
+* Gradle 9.2
+* Kotlin 2
 * Kotest
 
 # Running Tests
